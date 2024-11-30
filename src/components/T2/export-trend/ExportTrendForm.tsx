@@ -1,5 +1,3 @@
-import { FormEvent } from "react";
-
 interface SalesFilterFormProps {
   filters: {
     gender: string;
@@ -15,21 +13,9 @@ interface SalesFilterFormProps {
   onSubmit: () => void;
 }
 
-const ExportTrendForm = ({
-  filters,
-  setFilters,
-  onSubmit,
-}: SalesFilterFormProps) => {
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    onSubmit();
-  };
-
+const ExportTrendForm = ({ filters, setFilters }: SalesFilterFormProps) => {
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="max-w-4xl p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md"
-    >
+    <form className="max-w-4xl p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md">
       <div className="flex flex-col space-y-4 md:space-y-0 md:flex-row md:space-x-4">
         {/* Date range inputs */}
         <div className="flex flex-col">

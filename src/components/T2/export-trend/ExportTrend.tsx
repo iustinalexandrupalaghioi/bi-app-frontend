@@ -60,12 +60,25 @@ const ExportTrend = () => {
         throw new Error("Failed to export sales data.");
       }
 
-      setExportSuccess("Sales data exported successfully!");
+      // Convert the response to a Blob (binary data for the file)
+      const blob = await response.blob();
+
+      // Create a temporary download link
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = "sales_trend.xlsx"; // Specify the filename for the download
+
+      // Append the link to the document body and trigger the click event to start the download
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link); // Clean up by removing the link from the DOM
+
+      setExportSuccess("Sales data exported successfully!"); // Success message
     } catch (error) {
       console.error("Error exporting sales data:", error);
-      setExportError("Failed to export sales data. Please try again.");
+      setExportError("Failed to export sales data. Please try again."); // Error message
     } finally {
-      setLoadingExport(false);
+      setLoadingExport(false); // Hide the loading indicator
     }
   };
 

@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 export interface FetchSalesData {
   sale_id: number;
   book_title: string;
+  age: number;
   age_group: string;
   age_group_description: string;
   gender: string;
@@ -30,7 +31,19 @@ const useFetchSales = (initialFilters: Filters) => {
   const [loading, setLoading] = useState<boolean>(false);
 
   const fetchSalesData = async () => {
-    const queryString = new URLSearchParams(filters as any).toString();
+    // Exclude unwanted parameters
+    const { frequency, predictionYears, trendType, ...relevantFilters } =
+      filters;
+
+    const queryString = new URLSearchParams(
+      Object.entries(relevantFilters).reduce((acc, [key, value]) => {
+        if (value !== undefined && value !== null && value !== "") {
+          acc[key] = value as string;
+        }
+        return acc;
+      }, {} as Record<string, string>)
+    ).toString();
+
     const url = `http://localhost:8000/api/sales/fetch-sales?${queryString}`;
 
     setLoading(true);
@@ -52,7 +65,13 @@ const useFetchSales = (initialFilters: Filters) => {
 
   useEffect(() => {
     fetchSalesData();
-  }, [filters]);
+  }, [
+    filters.ageMax,
+    filters.ageMin,
+    filters.startDate,
+    filters.endDate,
+    filters.gender,
+  ]);
 
   return { data, filters, setFilters, fetchSalesData, loading, error };
 };

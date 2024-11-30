@@ -13,6 +13,9 @@ const ExportDataTable = ({ data }: { data: FetchSalesData[] }) => {
               Book Title
             </th>
             <th className="p-2 border border-gray-300 dark:border-gray-700">
+              Age
+            </th>
+            <th className="p-2 border border-gray-300 dark:border-gray-700">
               Age Group
             </th>
             <th className="p-2 border border-gray-300 dark:border-gray-700">
@@ -46,6 +49,9 @@ const ExportDataTable = ({ data }: { data: FetchSalesData[] }) => {
               </td>
               <td className="p-2 border border-gray-300 dark:border-gray-700">
                 {sale.book_title}
+              </td>
+              <td className="p-2 border border-gray-300 dark:border-gray-700">
+                {sale.age}
               </td>
               <td className="p-2 border border-gray-300 dark:border-gray-700">
                 {sale.age_group}
