@@ -19,7 +19,7 @@ const Sidebar = () => (
         </Accordion>
         <Accordion title="Additional Reports">
           <NavLink
-            to="/trend-excel"
+            to="/export-sales-trend"
             className={({ isActive }) =>
               isActive
                 ? "flex items-center px-4 py-2 text-white bg-gray-700 rounded-lg"

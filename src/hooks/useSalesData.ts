@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-interface FetchSaleCategoryData {
+export interface FetchSaleCategoryData {
   sale_id: number;
   book_title: string;
   age: number;
