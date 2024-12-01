@@ -3,13 +3,16 @@ import SalesFilterForm from "../sales-per-category/SalesFilterForm";
 import SalesBarChart from "../sales-per-category/SalesBarChart";
 
 const SalesPerCategoryChart = () => {
-  const { data, filters, setFilters, fetchSalesData } = useSalesData({
-    gender: "All",
-    ageMin: 0,
-    ageMax: 100,
-    startDate: "2022-10-28",
-    endDate: "2024-10-28",
-  });
+  const { data, filters, setFilters, fetchSalesData } = useSalesData(
+    {
+      gender: "All",
+      ageMin: 0,
+      ageMax: 100,
+      startDate: "2022-10-28",
+      endDate: "2024-10-28",
+    },
+    "category-series"
+  );
 
   const chartData = {
     labels: data.map((d) => d.category_name),

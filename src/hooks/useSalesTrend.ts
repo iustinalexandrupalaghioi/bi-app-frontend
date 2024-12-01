@@ -1,14 +1,8 @@
 import { useState, useEffect } from "react";
 
 export interface FetchSaleCategoryData {
-  sale_id: number;
-  book_title: string;
-  age: number;
-  gender: string;
   sale_date: string;
-  quantity: number;
-  totalsales: number;
-  category_name: string;
+  totalSales: string;
 }
 
 interface Filters {
@@ -17,9 +11,10 @@ interface Filters {
   ageMax: number;
   startDate: string;
   endDate: string;
+  frequency: string;
 }
 
-const useSalesData = (initialFilters: Filters, endpoint: string) => {
+const useSalesTrend = (initialFilters: Filters, endpoint: string) => {
   const [filters, setFilters] = useState(initialFilters);
   const [data, setData] = useState<FetchSaleCategoryData[]>([]);
 
@@ -29,6 +24,7 @@ const useSalesData = (initialFilters: Filters, endpoint: string) => {
 
     try {
       const response = await fetch(url);
+
       if (!response.ok) throw new Error("Network response was not ok");
 
       const fetchedData = await response.json();
@@ -45,4 +41,4 @@ const useSalesData = (initialFilters: Filters, endpoint: string) => {
   return { data, filters, setFilters, fetchSalesData };
 };
 
-export default useSalesData;
+export default useSalesTrend;
