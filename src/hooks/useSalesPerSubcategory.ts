@@ -2,14 +2,14 @@ import { useState, useEffect } from "react";
 
 export interface FetchSalesSubcategoryData {
   subcategory_name: string;
-  totalsales: number;
+  total_sales: number;
 }
 
 interface Filters {
-  category?: string | undefined;
-  gender?: string;
-  ageMin?: number;
-  ageMax?: number;
+  category: string;
+  gender: string;
+  ageMin: number;
+  ageMax: number;
   startDate: string;
   endDate: string;
 }
@@ -24,16 +24,26 @@ const useSalesPerSubcategory = (initialFilters: Filters) => {
     setLoading(true);
     setError(null);
 
-    const queryString = new URLSearchParams(filters as any).toString();
-    const url = `http://localhost:8000/api/sales/subcategory-series?${queryString}`;
-
     try {
+      const queryString = new URLSearchParams(
+        Object.fromEntries(
+          Object.entries(filters).filter(([_, value]) => value != null)
+        )
+      ).toString();
+      const url = `http://localhost:8000/api/sales/subcategory-series?${queryString}`;
+
       const response = await fetch(url);
       if (!response.ok) {
         throw new Error("Failed to fetch sales data");
       }
 
       const fetchedData: FetchSalesSubcategoryData[] = await response.json();
+      if (!Array.isArray(fetchedData)) {
+        throw new Error("Unexpected response format");
+      }
+
+      console.log(fetchedData);
+
       setData(fetchedData);
     } catch (err: any) {
       console.error("Error fetching sales per subcategory data:", err);

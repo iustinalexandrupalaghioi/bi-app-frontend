@@ -132,7 +132,7 @@ const ExportSalesPerSubcategoryForm = ({
             }
             className="w-full px-4 py-2 border rounded-md dark:bg-gray-900 dark:text-gray-200 focus:ring focus:ring-gray-500 mt-1"
           >
-            <option value="All">All</option>
+            <option value="0">All</option>
             {categories.map((c) => (
               <option key={c.category_name} value={c.category_id}>
                 {c.category_name}
