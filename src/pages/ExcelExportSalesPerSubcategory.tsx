@@ -1,4 +1,3 @@
-import React from "react";
 import ExportSalesPerSubcategory from "../components/T2/sales-per-category/ExportSalesPerSubcategory";
 
 const ExcelExportSalesPerSubcategory = () => {
