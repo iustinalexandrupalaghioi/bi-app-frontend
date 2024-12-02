@@ -3,7 +3,7 @@ import useSalesData from "../../../hooks/useExportTrend";
 import ExportData from "./ExportDataTable";
 import { useState } from "react";
 
-const ExportTrend = () => {
+const ExportTrendLine = () => {
   const initialFilters = {
     gender: "All",
     ageMin: 18,
@@ -115,4 +115,4 @@ const ExportTrend = () => {
   );
 };
 
-export default ExportTrend;
+export default ExportTrendLine;

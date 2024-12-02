@@ -1,8 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "./pages/Layout";
 import SalesPerCategory from "./pages/SalesPerCategory";
-import ExcelExport from "./pages/ExcelExport";
+import ExcelExportTrendLine from "./pages/ExcelExportTrendLine";
 import SalesTrend from "./pages/SalesTrend";
+import ExcelExportSalesPerSubcategory from "./pages/ExcelExportSalesPerSubcategory";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +20,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/export-sales-trend",
-        element: ExcelExport(),
+        element: ExcelExportTrendLine(),
+      },
+      {
+        path: "/export-sales-subcategory-series",
+        element: ExcelExportSalesPerSubcategory(),
       },
     ],
   },
