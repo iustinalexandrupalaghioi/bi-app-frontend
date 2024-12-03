@@ -44,8 +44,8 @@ const ExportSalesPerSubcategory = () => {
         startDate: filters.startDate,
         endDate: filters.endDate,
         gender: filters.gender,
-        minAge: filters.ageMin,
-        maxAge: filters.ageMax,
+        ageMin: filters.ageMin,
+        ageMax: filters.ageMax,
         category: filters.category,
       });
 

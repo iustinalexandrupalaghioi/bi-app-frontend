@@ -50,6 +50,17 @@ const Sidebar = () => (
           >
             Sales per subcategory
           </NavLink>
+
+          <NavLink
+            to="/export-sales-by-event"
+            className={({ isActive }) =>
+              isActive
+                ? "flex items-center px-4 py-2 mt-1 text-white bg-gray-700 rounded-lg"
+                : "flex items-center px-4 py-2 mt-1 text-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 rounded-lg"
+            }
+          >
+            Sales by event
+          </NavLink>
         </Accordion>
       </nav>
     </div>

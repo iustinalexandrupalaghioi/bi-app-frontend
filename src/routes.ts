@@ -26,6 +26,10 @@ const router = createBrowserRouter([
         path: "/export-sales-subcategory-series",
         element: ExcelExportSalesPerSubcategory(),
       },
+      {
+        path: "/export-sales-by-event",
+        element: ExcelExportSalesPerSubcategory(),
+      },
     ],
   },
 ]);
