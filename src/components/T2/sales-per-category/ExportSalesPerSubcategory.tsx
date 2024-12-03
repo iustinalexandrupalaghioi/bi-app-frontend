@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import useSalesPerSubcategory from "../../../hooks/useSalesPerSubcategory";
 import ExportSalesPerSubcategoryForm from "./ExportSalesPerSubcategoryForm";
 import ExportSalesPerSubcategoryTable from "./ExportSalesPerSubcategoryTable";
@@ -19,10 +19,6 @@ const ExportSalesPerSubcategory = () => {
   const [loadingExport, setLoadingExport] = useState(false);
   const [exportError, setExportError] = useState<string>("");
   const [exportSuccess, setExportSuccess] = useState<string>("");
-
-  useEffect(() => {
-    console.log(filters);
-  }, [filters]);
 
   const buildQueryParams = (
     params: Record<string, string | number | boolean>
