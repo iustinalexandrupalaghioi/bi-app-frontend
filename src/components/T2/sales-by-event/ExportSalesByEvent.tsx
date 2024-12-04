@@ -40,7 +40,7 @@ const ExportSalesByEvent = () => {
       });
 
       const response = await fetch(
-        `http://localhost:8000/api/sales/export-event-sales-plot?${queryString}`,
+        `http://localhost:8000/api/sales/export-event-sales?${queryString}`,
         {
           method: "GET",
         }
@@ -56,7 +56,7 @@ const ExportSalesByEvent = () => {
       // Create a temporary download link
       const link = document.createElement("a");
       link.href = URL.createObjectURL(blob);
-      link.download = "sales_per_category.xlsx"; // Specify the filename for the download
+      link.download = "event_sales.xlsx"; // Specify the filename for the download
 
       // Append the link to the document body and trigger the click event to start the download
       document.body.appendChild(link);
