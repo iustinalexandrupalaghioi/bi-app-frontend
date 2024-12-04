@@ -7,6 +7,7 @@ export interface FetchSalesByEventData {
 export interface EventSales {
   event_name: string;
   category_name: string;
+  friendly_name: string;
   start_date: string;
   end_date: string;
   duration: number;

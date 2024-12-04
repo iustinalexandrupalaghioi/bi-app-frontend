@@ -3,18 +3,18 @@ import useSalesData from "../../../hooks/useExportTrend";
 import ExportData from "./ExportDataTable";
 import { useState } from "react";
 
-const ExportTrendLine = () => {
-  const initialFilters = {
-    gender: "All",
-    ageMin: 18,
-    ageMax: 60,
-    startDate: "2024-01-01",
-    endDate: "2024-12-31",
-    frequency: "Monthly",
-    trendType: "linear",
-    predictionYears: 1,
-  };
+const initialFilters = {
+  gender: "All",
+  ageMin: 18,
+  ageMax: 60,
+  startDate: "2024-01-01",
+  endDate: "2024-12-31",
+  frequency: "Monthly",
+  trendType: "linear",
+  predictionYears: 1,
+};
 
+const ExportTrendLine = () => {
   const { data, filters, setFilters, fetchSalesData, loading, error } =
     useSalesData(initialFilters);
 

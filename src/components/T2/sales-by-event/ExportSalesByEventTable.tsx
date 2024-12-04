@@ -13,6 +13,9 @@ const ExportSalesByEventTable = ({ data }: { data: EventSales[] }) => {
               Category
             </th>
             <th className="p-2 border border-gray-300 dark:border-gray-700">
+              Friendly name
+            </th>
+            <th className="p-2 border border-gray-300 dark:border-gray-700">
               Start date
             </th>
             <th className="p-2 border border-gray-300 dark:border-gray-700">
@@ -49,6 +52,9 @@ const ExportSalesByEventTable = ({ data }: { data: EventSales[] }) => {
               </td>
               <td className="p-2 border border-gray-300 dark:border-gray-700">
                 {item.category_name}
+              </td>
+              <td className="p-2 border border-gray-300 dark:border-gray-700">
+                {item.friendly_name}
               </td>
               <td className="p-2 border border-gray-300 dark:border-gray-700">
                 {item.start_date.split("00:00")[0]}
