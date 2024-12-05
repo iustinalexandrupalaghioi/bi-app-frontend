@@ -6,6 +6,7 @@ import SalesTrend from "./pages/SalesTrend";
 import ExcelExportSalesPerSubcategory from "./pages/ExcelExportSalesPerSubcategory";
 import ExcelExportSalesByEvent from "./pages/ExcelExportSalesByEvent";
 import SalesTrendWithDiscounts from "./pages/SalesTrendWithDiscounts";
+import SalesMapPoints from "./pages/SalesMapPoints";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "/sales-trend-discount",
         element: SalesTrendWithDiscounts(),
+      },
+      {
+        path: "/sales-cities",
+        element: SalesMapPoints(),
       },
     ],
   },
