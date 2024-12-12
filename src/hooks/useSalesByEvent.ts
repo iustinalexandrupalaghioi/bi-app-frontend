@@ -22,6 +22,7 @@ interface Filters {
   category: number;
   startDate: string;
   endDate: string;
+  gender: string;
 }
 
 const useSalesByEvent = (initialFilters: Filters) => {

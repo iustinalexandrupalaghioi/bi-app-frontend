@@ -6,6 +6,7 @@ import ExportSalesByEventTable from "./ExportSalesByEventTable";
 const initialFilters = {
   startDate: "2024-01-01",
   endDate: "2024-12-31",
+  gender: "All",
   category: 0,
 };
 
