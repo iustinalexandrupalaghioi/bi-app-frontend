@@ -2,6 +2,9 @@ interface ExportSalesPerSubcategoryFormProps {
   filters: {
     startDate: string;
     endDate: string;
+    gender: string;
+    ageMin: number;
+    ageMax: number;
   };
   setFilters: (filters: any) => void;
 }
@@ -48,6 +51,64 @@ const ExportSalesPerSubcategoryForm = ({
             className="px-4 py-2 border rounded-md dark:bg-gray-900 dark:text-gray-200 focus:ring focus:ring-gray-500"
           />
         </div>
+      </div>
+
+      <div className="flex flex-col space-y-4 md:space-y-0 md:flex-row md:space-x-4 mt-4">
+        {/* Age range inputs */}
+        <div className="flex flex-col">
+          <label
+            htmlFor="minAge"
+            className="mb-1 text-sm text-gray-600 dark:text-gray-300"
+          >
+            Min Age
+          </label>
+          <input
+            type="number"
+            id="minAge"
+            value={filters.ageMin}
+            onChange={(e) =>
+              setFilters({ ...filters, ageMin: Number(e.target.value) })
+            }
+            className="px-4 py-2 border rounded-md dark:bg-gray-900 dark:text-gray-200 focus:ring focus:ring-gray-500"
+          />
+        </div>
+        <div className="flex flex-col">
+          <label
+            htmlFor="maxAge"
+            className="mb-1 text-sm text-gray-600 dark:text-gray-300"
+          >
+            Max Age
+          </label>
+          <input
+            type="number"
+            id="maxAge"
+            value={filters.ageMax}
+            onChange={(e) =>
+              setFilters({ ...filters, ageMax: Number(e.target.value) })
+            }
+            className="px-4 py-2 border rounded-md dark:bg-gray-900 dark:text-gray-200 focus:ring focus:ring-gray-500"
+          />
+        </div>
+      </div>
+
+      <div className="mt-4 w-full flex flex-col">
+        {/* Gender selection */}
+        <label
+          htmlFor="gender"
+          className="mb-1 text-sm text-gray-600 dark:text-gray-300"
+        >
+          Gender
+        </label>
+        <select
+          id="gender"
+          value={filters.gender}
+          onChange={(e) => setFilters({ ...filters, gender: e.target.value })}
+          className="w-fit px-4 py-2 border rounded-md dark:bg-gray-900 dark:text-gray-200 focus:ring focus:ring-gray-500 mt-1"
+        >
+          <option value="All">All</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
       </div>
     </form>
   );

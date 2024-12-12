@@ -15,6 +15,9 @@ export interface SalesCityData {
 interface Filters {
   startDate: string;
   endDate: string;
+  gender: string;
+  ageMin: number;
+  ageMax: number;
 }
 
 const useSalesMapPoints = (initialFilters: Filters) => {

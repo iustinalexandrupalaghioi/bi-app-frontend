@@ -1,6 +1,5 @@
 import ExportTrendForm from "./ExportTrendForm";
 import useSalesData from "../../../hooks/useExportTrend";
-import ExportData from "./ExportDataTable";
 import { useState } from "react";
 
 const initialFilters = {
@@ -15,8 +14,7 @@ const initialFilters = {
 };
 
 const ExportTrendLine = () => {
-  const { data, filters, setFilters, fetchSalesData, loading, error } =
-    useSalesData(initialFilters);
+  const { filters, setFilters, fetchSalesData } = useSalesData(initialFilters);
 
   const [loadingExport, setLoadingExport] = useState(false);
   const [exportError, setExportError] = useState<string>("");
@@ -104,13 +102,6 @@ const ExportTrendLine = () => {
         <div className="text-green-500 font-medium">{exportSuccess}</div>
       )}
       {exportError && <div className="text-red-500">{exportError}</div>}
-
-      {loading && (
-        <div className="text-gray-600 dark:text-gray-300">Loading data...</div>
-      )}
-      {error && <div className="text-red-500">Error: {error}</div>}
-
-      {!loading && !error && <ExportData data={data} />}
     </div>
   );
 };
