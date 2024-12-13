@@ -1,3 +1,5 @@
+import useCategories from "../../../hooks/useCategories";
+
 interface ExportSalesPerSubcategoryFormProps {
   filters: {
     startDate: string;
@@ -5,6 +7,7 @@ interface ExportSalesPerSubcategoryFormProps {
     gender: string;
     ageMin: number;
     ageMax: number;
+    category: string;
   };
   setFilters: (filters: any) => void;
 }
@@ -13,6 +16,8 @@ const ExportSalesPerSubcategoryForm = ({
   filters,
   setFilters,
 }: ExportSalesPerSubcategoryFormProps) => {
+  const { categories } = useCategories();
+
   return (
     <form className="max-w-4xl p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md">
       <div className="flex flex-col space-y-4 md:space-y-0 md:flex-row md:space-x-4">
@@ -111,6 +116,33 @@ const ExportSalesPerSubcategoryForm = ({
           <option value="Other">Other</option>
         </select>
       </div>
+
+      {categories && (
+        <div className="mt-4 w-full flex flex-col">
+          {/* Gender selection */}
+          <label
+            htmlFor="category"
+            className="mb-1 text-sm text-gray-600 dark:text-gray-300"
+          >
+            Category
+          </label>
+          <select
+            id="category"
+            value={filters.category}
+            onChange={(e) =>
+              setFilters({ ...filters, category: e.target.value })
+            }
+            className="w-fit px-4 py-2 border rounded-md dark:bg-gray-900 dark:text-gray-200 focus:ring focus:ring-gray-500 mt-1"
+          >
+            <option value="All">All</option>
+            {categories.map((cat) => (
+              <option key={cat.category_id} value={cat.category_id}>
+                {cat.category_name}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
     </form>
   );
 };

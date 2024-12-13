@@ -18,6 +18,7 @@ interface Filters {
   gender: string;
   ageMin: number;
   ageMax: number;
+  category: string;
 }
 
 const useSalesMapPoints = (initialFilters: Filters) => {

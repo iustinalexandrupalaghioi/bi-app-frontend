@@ -9,6 +9,7 @@ const SalesMap = () => {
     gender: "All",
     ageMin: 18,
     ageMax: 60,
+    category: "All",
   });
 
   return (
